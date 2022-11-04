@@ -2,6 +2,7 @@ package dalle
 
 import (
 	"github.com/edoardottt/dalle/pkg/client"
+	"github.com/edoardottt/dalle/pkg/services"
 )
 
 type API struct {
