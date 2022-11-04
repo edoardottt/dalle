@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	defaultBaseURL        = "https://api.openai.com"
+	defaultBaseURL        = "https://api.openai.com/v1"
 	Seconds30             = 30 * time.Second
 	MaxIdleConns          = 100
 	IdleConnTimeout       = 90 * time.Second
