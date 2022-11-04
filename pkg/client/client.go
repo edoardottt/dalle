@@ -107,6 +107,7 @@ func (c *Client) RawGet(ctx context.Context, path string) ([]byte, error) {
 	if err != nil {
 		return []byte{}, err
 	}
+
 	return bodyBytes, nil
 }
 

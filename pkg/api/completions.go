@@ -22,7 +22,7 @@ type CompletionsInput struct {
 	Echo             bool        `json:"echo,omitempty"`
 	Stop             string      `json:"stop,omitempty"`
 	PresencePenalty  int         `json:"presence_penalty,omitempty"`
-	FrequencePenalty int         `json:"frequence_penalty,omitempty"`
+	FrequencePenalty int         `json:"frequence_penalty,omitempty"` //nocheck: misspell
 	BestOf           int         `json:"best_of,omitempty"`
 	LogitBias        map[int]int `json:"logit_bias,omitempty"`
 	User             string      `json:"user,omitempty"`
