@@ -2,6 +2,10 @@ package api
 
 import "fmt"
 
+type ErrorResponse struct {
+	ErrorData Error `json:"error,omitempty"`
+}
+
 type Error struct {
 	Message string      `json:"message,omitempty"`
 	Type    string      `json:"type,omitempty"`
@@ -9,6 +13,6 @@ type Error struct {
 	Code    interface{} `json:"code,omitempty"`
 }
 
-func (e *Error) Error() string {
-	return fmt.Sprintf("%s %s: %s", e.Type, e.Code, e.Message)
+func (e *ErrorResponse) Error() string {
+	return fmt.Sprintf("%s %s: %s", e.ErrorData.Type, e.ErrorData.Code, e.ErrorData.Message)
 }

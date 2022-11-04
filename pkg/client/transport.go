@@ -40,7 +40,7 @@ func (t *transport) RoundTrip(req *http.Request) (*http.Response, error) {
 
 		if resp.StatusCode >= Error400 {
 			defer func() { _ = resp.Body.Close() }()
-			var apiError api.Error
+			var apiError api.ErrorResponse
 			if err := json.NewDecoder(resp.Body).Decode(&apiError); err != nil {
 				return fmt.Errorf("server error: %v %v - %w", ErrStatus, resp.StatusCode, err)
 			}
