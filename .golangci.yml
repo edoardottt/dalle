@@ -52,3 +52,6 @@ linters-settings:
     # Default: []
     ignored-numbers:
       - '2'
+  misspell:
+    ignore-words:
+      - frequence

@@ -14,3 +14,8 @@ type File struct {
 	Purpose   string `json:"purpose,omitempty"`
 	Deleted   bool   `json:"deleted,omitempty"`
 }
+
+type FileInput struct {
+	File    string `json:"file,omitempty"`
+	Purpose string `json:"purpose,omitempty"`
+}

@@ -31,3 +31,8 @@ type Results struct {
 	CategoryScores CategoryScores `json:"category_scores,omitempty"`
 	Flagged        bool           `json:"flagged,omitempty"`
 }
+
+type ModerationInput struct {
+	Model string `json:"model,omitempty"`
+	Input string `json:"input,omitempty"`
+}

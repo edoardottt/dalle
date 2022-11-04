@@ -12,3 +12,9 @@ type Embedding struct {
 	Index     int       `json:"index,omitempty"`
 	Embedding []float64 `json:"embedding,omitempty"`
 }
+
+type EmbeddingInput struct {
+	Model string `json:"model,omitempty"`
+	Input string `json:"input,omitempty"`
+	User  string `json:"user,omitempty"`
+}

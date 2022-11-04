@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	defaultBaseURL        = "https://api.openai.com"
+	defaultBaseURL        = "https://api.openai.com/v1"
 	Seconds30             = 30 * time.Second
 	MaxIdleConns          = 100
 	IdleConnTimeout       = 90 * time.Second
@@ -86,6 +86,31 @@ func (c *Client) do(ctx context.Context, method, path string, target interface{}
 	return json.NewDecoder(resp.Body).Decode(target)
 }
 
+func (c *Client) RawGet(ctx context.Context, path string) ([]byte, error) {
+	req, err := http.NewRequestWithContext(ctx, http.MethodGet, c.url(path), nil)
+	if err != nil {
+		return []byte{}, err
+	}
+
+	req.Header.Set("Authorization", "Bearer "+c.apiKey)
+	req.Header.Set("Content-Type", "application/json")
+
+	resp, err := c.underlying.Do(req)
+
+	if err != nil {
+		return []byte{}, err
+	}
+
+	defer func() { _ = resp.Body.Close() }()
+
+	bodyBytes, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return []byte{}, err
+	}
+
+	return bodyBytes, nil
+}
+
 func (c *Client) Get(ctx context.Context, path string, target interface{}) error {
 	return c.do(ctx, http.MethodGet, path, target, nil)
 }
@@ -99,8 +124,8 @@ func (c *Client) Post(ctx context.Context, path string, target interface{}, body
 	return c.do(ctx, http.MethodPost, path, target, buffer)
 }
 
-func (c *Client) Delete(ctx context.Context, path string) error {
-	return c.do(ctx, http.MethodDelete, path, nil, nil)
+func (c *Client) Delete(ctx context.Context, path string, target interface{}) error {
+	return c.do(ctx, http.MethodDelete, path, target, nil)
 }
 
 func (c *Client) Patch(ctx context.Context, path string, target interface{}, body interface{}) error {
