@@ -11,13 +11,12 @@ import (
 	"fmt"
 
 	"github.com/edoardottt/dalle"
-	"github.com/edoardottt/dalle/pkg/api"
 )
 
 func main() {
 	d := dalle.New("API-KEY")
 
-	models, _, err := d.Services.ListModels(context.TODO())
+	models, err := d.Services.ListModels(context.TODO())
 
 	if err != nil {
 		fmt.Println(err)
@@ -27,6 +26,7 @@ func main() {
 		fmt.Println(model.ID)
 	}
 }
+
 ```
 
 Contributing 🛠
