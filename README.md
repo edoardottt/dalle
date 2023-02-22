@@ -1,7 +1,7 @@
 # dalle
 Simple Golang Client to interact with Dall-E API. See the [API documentation here](https://beta.openai.com/docs/api-reference).
 
-<a href="https://edoardoottavianelli.it">
+<a href="https://github.com/edoardottt/dalle/actions">
 	<img src="https://github.com/edoardottt/dalle/actions/workflows/go.yml/badge.svg" alt="workflows" />
 </a>
 
