@@ -5,9 +5,6 @@ Simple Golang Client to interact with Dall-E API. See the [API documentation her
 <a href="https://github.com/edoardottt/dalle/actions">
     <img src="https://github.com/edoardottt/dalle/actions/workflows/go.yml/badge.svg" alt="workflows" />
 </a>
-<a href="https://goreportcard.com/report/github.com/edoardottt/dalle">
-    <img src="https://goreportcard.com/badge/github.com/edoardottt/dalle" alt="goreportcard" />
-</a>
 
 Usage 🚀
 -------
